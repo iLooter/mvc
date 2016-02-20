@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <title><?=Config::get('site_name')?></title>
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+          <div class="navbar-header">
+
+              <a class="navbar-brand" href="/"><?=Config::get('site_name')?></a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a <?php if( App::getRouter()->getController() == 'pages' ) {?>class="active"<?php } ?> href="/pages/">Pages</a></li>
+                  <li><a <?php if( App::getRouter()->getController() == 'contacts' ) {?>class="active"<?php } ?> href="/contacts/">Contact us</a></li>
+              </ul>
+          </div><!--/.nav-collapse -->
+      </div>
+  </nav>
+
+  <div class="container">
+
+      <div class="starter-template">
+
+          <?php if( Session::hasFlash() ) { ?>
+          <div class="alert alert-info" role="alert">
+              <?php Session::flash(); ?>
+          </div>
+          <?php } ?>
+
+          <?=$data['content']?>
+      </div>
+
+  </div>
+
+
+</body>
+</html>
