@@ -1,1 +1,1 @@
-# Simple implementation of a MVC pattern using php.
+# A simple implementation of MVC programming pattern via PHP
